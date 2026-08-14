@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Contact Neha Tabassum for web development, data science and project-related opportunities.">
+
+    <meta name="author" content="Neha Tabassum">
+
+    <title>Contact | Neha Tabassum</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Skip link for keyboard users -->
+    <a href="#main-content" class="skip-link">
+        Skip to main content
+    </a>
+
+    <!-- Header -->
+    <header>
+
+        <h1>Neha Tabassum</h1>
+
+        <nav aria-label="Main Navigation">
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="projects.html">
+                        Projects
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html" aria-current="page">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+        <section aria-labelledby="contact-heading">
+
+            <h2 id="contact-heading">
+                Contact Me
+            </h2>
+
+            <p>
+                If you would like to get in touch with me, you can use
+                the form below.
+            </p>
+
+        </section>
+
+
+        <!-- Accessible Contact Form -->
+        <section aria-labelledby="form-heading">
+
+            <h2 id="form-heading">
+                Send a Message
+            </h2>
+
+            <form action="#" method="post">
+
+                <!-- Name -->
+                <div>
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        autocomplete="name"
+                        required
+                        aria-required="true"
+                    >
+
+                </div>
+
+
+                <!-- Email -->
+                <div>
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        autocomplete="email"
+                        required
+                        aria-required="true"
+                        aria-describedby="email-help"
+                    >
+
+                    <small id="email-help">
+                        Please enter a valid email address.
+                    </small>
+
+                </div>
+
+
+                <!-- Subject -->
+                <div>
+
+                    <label for="subject">
+                        Subject
+                    </label>
+
+                    <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        required
+                        aria-required="true"
+                    >
+
+                </div>
+
+
+                <!-- Message -->
+                <div>
+
+                    <label for="message">
+                        Message
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="6"
+                        required
+                        aria-required="true"
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Submit -->
+                <button type="submit">
+                    Send Message
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Contact Information -->
+        <section aria-labelledby="contact-info-heading">
+
+            <h2 id="contact-info-heading">
+                Other Information
+            </h2>
+
+            <p>
+                You can contact me regarding web development,
+                data science projects, learning opportunities
+                and collaborations.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            &copy; 2026 Neha Tabassum. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
