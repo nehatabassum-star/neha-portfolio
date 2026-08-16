@@ -1,11 +1,5 @@
-```css
 /* =========================================
-   ADVANCED CSS3 & RESPONSIVE PORTFOLIO
-   Assessment 2
-========================================= */
-
-/* =========================================
-   1. CSS VARIABLES
+   ASSESSMENT 2 - ADVANCED CSS3
 ========================================= */
 
 :root {
@@ -18,45 +12,26 @@
     --border-color: #dbe3ef;
     --muted-color: #64748b;
 
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 0.75rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 1.5rem;
-    --spacing-xl: 2rem;
-    --spacing-xxl: 3rem;
-
-    --radius-sm: 6px;
-    --radius-md: 10px;
-    --radius-lg: 16px;
-
-    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.08);
-    --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.12);
-
+    --radius: 8px;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     --transition: 0.3s ease;
 }
-
-/* =========================================
-   DARK MODE
-========================================= */
 
 @media (prefers-color-scheme: dark) {
     :root {
         --bg-color: #0f172a;
         --surface-color: #1e293b;
         --text-color: #e2e8f0;
-        --heading-color: #f8fafc;
-        --primary-color: #60a5fa;
-        --primary-dark: #93c5fd;
+        --heading-color: #ffffff;
+        --primary-color: #3b82f6;
+        --primary-dark: #60a5fa;
         --border-color: #334155;
         --muted-color: #94a3b8;
-
-        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
-        --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
     }
 }
 
 /* =========================================
-   2. RESET & GLOBAL STYLES
+   RESET
 ========================================= */
 
 * {
@@ -74,259 +49,181 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
 
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    line-height: 1.7;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
 }
 
 /* =========================================
-   3. TYPOGRAPHY
-========================================= */
-
-h1,
-h2,
-h3 {
-    color: var(--heading-color);
-    line-height: 1.3;
-}
-
-h1 {
-    font-size: 2rem;
-    margin: 0;
-}
-
-h2 {
-    font-size: 1.6rem;
-    margin-top: 0;
-}
-
-h3 {
-    font-size: 1.2rem;
-}
-
-p {
-    max-width: 70ch;
-}
-
-a {
-    color: var(--primary-color);
-}
-
-/* =========================================
-   4. SKIP LINK
-========================================= */
-
-.skip-link {
-    position: absolute;
-    left: -9999px;
-    top: 0;
-}
-
-.skip-link:focus {
-    left: 1rem;
-    top: 1rem;
-    z-index: 1000;
-
-    padding: 0.75rem 1rem;
-
-    background-color: var(--heading-color);
-    color: var(--bg-color);
-
-    border-radius: var(--radius-sm);
-}
-
-/* =========================================
-   5. HEADER
-   FLEXBOX
+   HEADER - FLEXBOX
 ========================================= */
 
 header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-lg);
 
-    padding: var(--spacing-xl) var(--spacing-md);
+    gap: 20px;
+    padding: 25px 20px;
 
     background-color: var(--surface-color);
     border-bottom: 1px solid var(--border-color);
 
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow);
+}
+
+h1,
+h2,
+h3 {
+    color: var(--heading-color);
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
 }
 
 /* =========================================
-   6. NAVIGATION
-   FLEXBOX
+   NAVIGATION - FLEXBOX
 ========================================= */
 
-nav ul {
-    list-style: none;
+nav {
+    display: block;
+    width: 100%;
+}
 
+nav ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 
-    gap: var(--spacing-sm);
+    gap: 10px;
 
+    list-style: none;
     padding: 0;
     margin: 0;
+}
+
+nav li {
+    display: block;
 }
 
 nav a {
     display: block;
 
-    padding: 0.6rem 1rem;
+    padding: 10px 18px;
 
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
 
     text-decoration: none;
     font-weight: bold;
 
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius);
 
-    transition:
-        background-color var(--transition),
-        transform var(--transition),
-        box-shadow var(--transition);
+    transition: var(--transition);
 }
 
 nav a:hover,
-nav a:focus-visible {
+nav a:focus {
     background-color: var(--primary-dark);
+    color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: var(--shadow-sm);
-}
-
-nav a[aria-current="page"] {
-    background-color: var(--primary-dark);
 }
 
 /* =========================================
-   7. MAIN LAYOUT
-   CSS GRID
+   MAIN - CSS GRID
 ========================================= */
 
 main {
-    width: min(92%, 1100px);
+    width: 92%;
+    max-width: 1100px;
+
     margin: 0 auto;
+    padding: 40px 0;
 
     display: grid;
     grid-template-columns: 1fr;
 
-    gap: var(--spacing-xl);
-
-    padding: var(--spacing-xxl) 0;
+    gap: 25px;
 }
 
 /* =========================================
-   8. SECTIONS
+   SECTIONS
 ========================================= */
 
 section {
-    padding: var(--spacing-xl);
+    padding: 25px;
 
     background-color: var(--surface-color);
 
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
+    border-radius: 12px;
 
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow);
 
-    transition:
-        transform var(--transition),
-        box-shadow var(--transition);
+    transition: var(--transition);
 }
 
 section:hover {
     transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
 }
 
 /* =========================================
-   9. ARTICLES / PROJECT CARDS
-   CSS GRID
+   LINKS / BUTTONS
 ========================================= */
 
-article {
-    padding: var(--spacing-lg);
-
-    background-color: var(--bg-color);
-
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-
-    transition:
-        transform var(--transition),
-        box-shadow var(--transition);
-}
-
-article:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-}
-
-/* =========================================
-   10. LISTS
-========================================= */
-
-section ul {
-    padding-left: 1.25rem;
-}
-
-/* Skills and technology lists */
-
-section li {
-    margin-bottom: 0.4rem;
-}
-
-/* =========================================
-   11. HOME PAGE BUTTONS
-========================================= */
-
-main > section > a {
+main section a {
     display: inline-block;
 
-    margin-top: var(--spacing-md);
-    margin-right: var(--spacing-sm);
+    margin-top: 15px;
+    margin-right: 10px;
 
-    padding: 0.75rem 1.2rem;
+    padding: 10px 18px;
 
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
 
     text-decoration: none;
     font-weight: bold;
 
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius);
 
-    transition:
-        background-color var(--transition),
-        transform var(--transition);
+    transition: var(--transition);
 }
 
-main > section > a:hover,
-main > section > a:focus-visible {
+main section a:hover {
     background-color: var(--primary-dark);
     transform: translateY(-2px);
 }
 
 /* =========================================
-   12. CONTACT FORM
-   CSS GRID
+   PROJECT ARTICLES
+========================================= */
+
+article {
+    padding: 20px;
+
+    background-color: var(--bg-color);
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+}
+
+/* =========================================
+   CONTACT FORM - CSS GRID
 ========================================= */
 
 form {
     display: grid;
-    gap: var(--spacing-lg);
+    gap: 18px;
 }
 
 form > div {
     display: grid;
-    gap: var(--spacing-xs);
+    gap: 6px;
 }
 
 label {
@@ -338,7 +235,7 @@ input,
 textarea {
     width: 100%;
 
-    padding: 0.8rem 1rem;
+    padding: 10px;
 
     font: inherit;
 
@@ -346,70 +243,43 @@ textarea {
     background-color: var(--bg-color);
 
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm);
-
-    transition:
-        border-color var(--transition),
-        box-shadow var(--transition);
+    border-radius: var(--radius);
 }
 
 input:focus,
 textarea:focus {
-    outline: none;
-
-    border-color: var(--primary-color);
-
-    box-shadow:
-        0 0 0 3px
-        rgba(37, 99, 235, 0.15);
+    outline: 2px solid var(--primary-color);
 }
 
 textarea {
-    resize: vertical;
     min-height: 150px;
+    resize: vertical;
 }
-
-small {
-    color: var(--muted-color);
-}
-
-/* =========================================
-   13. SUBMIT BUTTON
-   FLEXBOX
-========================================= */
 
 button {
-    width: 100%;
+    width: fit-content;
 
-    padding: 0.8rem 1.2rem;
+    padding: 10px 20px;
 
     border: none;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius);
 
     background-color: var(--primary-color);
-    color: white;
+    color: #ffffff;
 
-    font: inherit;
     font-weight: bold;
-
     cursor: pointer;
 
-    transition:
-        background-color var(--transition),
-        transform var(--transition),
-        box-shadow var(--transition);
+    transition: var(--transition);
 }
 
-button:hover,
-button:focus-visible {
+button:hover {
     background-color: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-sm);
 }
 
 /* =========================================
-   14. FOOTER
-   FLEXBOX
+   FOOTER - FLEXBOX
 ========================================= */
 
 footer {
@@ -418,8 +288,7 @@ footer {
     align-items: center;
 
     min-height: 100px;
-
-    padding: var(--spacing-lg);
+    padding: 20px;
 
     background-color: var(--surface-color);
 
@@ -434,8 +303,7 @@ footer p {
 }
 
 /* =========================================
-   15. TABLET RESPONSIVE DESIGN
-   768px+
+   TABLET - 768px
 ========================================= */
 
 @media (min-width: 768px) {
@@ -444,38 +312,28 @@ footer p {
         flex-direction: row;
         justify-content: space-between;
 
-        padding: var(--spacing-lg) 5%;
+        padding: 25px 5%;
+    }
+
+    nav {
+        width: auto;
     }
 
     main {
-        width: min(90%, 1100px);
-
         grid-template-columns: repeat(2, 1fr);
-
-        align-items: start;
-    }
-
-    main > section:first-child {
-        grid-column: 1 / -1;
     }
 
     form {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    form > div:nth-child(4) {
+    form > div:last-of-type {
         grid-column: 1 / -1;
-    }
-
-    button {
-        width: auto;
-        justify-self: start;
     }
 }
 
 /* =========================================
-   16. DESKTOP RESPONSIVE DESIGN
-   1024px+
+   DESKTOP - 1024px
 ========================================= */
 
 @media (min-width: 1024px) {
@@ -486,11 +344,12 @@ footer p {
     }
 
     main {
-        width: min(86%, 1200px);
+        width: 86%;
+        max-width: 1200px;
 
         grid-template-columns: repeat(3, 1fr);
 
-        gap: var(--spacing-xxl);
+        gap: 30px;
     }
 
     main > section:first-child {
@@ -498,44 +357,16 @@ footer p {
     }
 
     section {
-        padding: var(--spacing-xxl);
+        padding: 30px;
     }
 
     h1 {
         font-size: 2.4rem;
     }
-
-    h2 {
-        font-size: 1.8rem;
-    }
-
-    nav ul {
-        gap: var(--spacing-md);
-    }
-
-    nav a {
-        padding: 0.7rem 1.2rem;
-    }
 }
 
 /* =========================================
-   17. LARGE DESKTOP
-   1400px+
-========================================= */
-
-@media (min-width: 1400px) {
-
-    main {
-        width: min(82%, 1300px);
-    }
-
-    body {
-        font-size: 1.05rem;
-    }
-}
-
-/* =========================================
-   18. REDUCED MOTION ACCESSIBILITY
+   REDUCED MOTION
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -544,45 +375,7 @@ footer p {
         scroll-behavior: auto;
     }
 
-    *,
-    *::before,
-    *::after {
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
+    * {
+        transition: none !important;
     }
-}
-```
-/* Fix navigation visibility */
-
-header nav {
-    display: block;
-    width: 100%;
-}
-
-header nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-header nav li {
-    display: block;
-}
-
-header nav a {
-    display: inline-block;
-    background-color: #2563eb;
-    color: #ffffff;
-    padding: 10px 18px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 6px;
-}
-
-header nav a:hover {
-    background-color: #1d4ed8;
 }
