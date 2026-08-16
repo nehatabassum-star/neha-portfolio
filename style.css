@@ -1,31 +1,554 @@
-/* ==============================
-   NAVIGATION
-============================== */
+```css
+/* =========================================
+   ADVANCED CSS3 & RESPONSIVE PORTFOLIO
+   Assessment 2
+========================================= */
+
+/* =========================================
+   1. CSS VARIABLES
+========================================= */
+
+:root {
+    --bg-color: #f8fafc;
+    --surface-color: #ffffff;
+    --text-color: #1e293b;
+    --heading-color: #0f172a;
+    --primary-color: #2563eb;
+    --primary-dark: #1d4ed8;
+    --border-color: #dbe3ef;
+    --muted-color: #64748b;
+
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+
+    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.08);
+    --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.12);
+
+    --transition: 0.3s ease;
+}
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #0f172a;
+        --surface-color: #1e293b;
+        --text-color: #e2e8f0;
+        --heading-color: #f8fafc;
+        --primary-color: #60a5fa;
+        --primary-dark: #93c5fd;
+        --border-color: #334155;
+        --muted-color: #94a3b8;
+
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+        --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+}
+
+/* =========================================
+   2. RESET & GLOBAL STYLES
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background-color: var(--bg-color);
+    color: var(--text-color);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    line-height: 1.7;
+}
+
+/* =========================================
+   3. TYPOGRAPHY
+========================================= */
+
+h1,
+h2,
+h3 {
+    color: var(--heading-color);
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.6rem;
+    margin-top: 0;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+p {
+    max-width: 70ch;
+}
+
+a {
+    color: var(--primary-color);
+}
+
+/* =========================================
+   4. SKIP LINK
+========================================= */
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+}
+
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    z-index: 1000;
+
+    padding: 0.75rem 1rem;
+
+    background-color: var(--heading-color);
+    color: var(--bg-color);
+
+    border-radius: var(--radius-sm);
+}
+
+/* =========================================
+   5. HEADER
+   FLEXBOX
+========================================= */
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+
+    padding: var(--spacing-xl) var(--spacing-md);
+
+    background-color: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+
+    box-shadow: var(--shadow-sm);
+}
+
+/* =========================================
+   6. NAVIGATION
+   FLEXBOX
+========================================= */
 
 nav ul {
     list-style: none;
+
     display: flex;
-    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    gap: var(--spacing-sm);
+
     padding: 0;
     margin: 0;
 }
 
 nav a {
     display: block;
-    background-color: #2563eb;
+
+    padding: 0.6rem 1rem;
+
+    background-color: var(--primary-color);
     color: white;
+
     text-decoration: none;
     font-weight: bold;
-    padding: 9px 16px;
-    border-radius: 6px;
-    transition: background-color 0.2s ease;
+
+    border-radius: var(--radius-sm);
+
+    transition:
+        background-color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
 }
 
 nav a:hover,
-nav a:focus {
-    background-color: #1d4ed8;
+nav a:focus-visible {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }
 
 nav a[aria-current="page"] {
-    background-color: #1e40af;
+    background-color: var(--primary-dark);
 }
+
+/* =========================================
+   7. MAIN LAYOUT
+   CSS GRID
+========================================= */
+
+main {
+    width: min(92%, 1100px);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: var(--spacing-xl);
+
+    padding: var(--spacing-xxl) 0;
+}
+
+/* =========================================
+   8. SECTIONS
+========================================= */
+
+section {
+    padding: var(--spacing-xl);
+
+    background-color: var(--surface-color);
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+section:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+/* =========================================
+   9. ARTICLES / PROJECT CARDS
+   CSS GRID
+========================================= */
+
+article {
+    padding: var(--spacing-lg);
+
+    background-color: var(--bg-color);
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+article:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* =========================================
+   10. LISTS
+========================================= */
+
+section ul {
+    padding-left: 1.25rem;
+}
+
+/* Skills and technology lists */
+
+section li {
+    margin-bottom: 0.4rem;
+}
+
+/* =========================================
+   11. HOME PAGE BUTTONS
+========================================= */
+
+main > section > a {
+    display: inline-block;
+
+    margin-top: var(--spacing-md);
+    margin-right: var(--spacing-sm);
+
+    padding: 0.75rem 1.2rem;
+
+    background-color: var(--primary-color);
+    color: white;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    border-radius: var(--radius-sm);
+
+    transition:
+        background-color var(--transition),
+        transform var(--transition);
+}
+
+main > section > a:hover,
+main > section > a:focus-visible {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   12. CONTACT FORM
+   CSS GRID
+========================================= */
+
+form {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+form > div {
+    display: grid;
+    gap: var(--spacing-xs);
+}
+
+label {
+    font-weight: bold;
+    color: var(--heading-color);
+}
+
+input,
+textarea {
+    width: 100%;
+
+    padding: 0.8rem 1rem;
+
+    font: inherit;
+
+    color: var(--text-color);
+    background-color: var(--bg-color);
+
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+
+    border-color: var(--primary-color);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(37, 99, 235, 0.15);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+small {
+    color: var(--muted-color);
+}
+
+/* =========================================
+   13. SUBMIT BUTTON
+   FLEXBOX
+========================================= */
+
+button {
+    width: 100%;
+
+    padding: 0.8rem 1.2rem;
+
+    border: none;
+    border-radius: var(--radius-sm);
+
+    background-color: var(--primary-color);
+    color: white;
+
+    font: inherit;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+button:hover,
+button:focus-visible {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* =========================================
+   14. FOOTER
+   FLEXBOX
+========================================= */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100px;
+
+    padding: var(--spacing-lg);
+
+    background-color: var(--surface-color);
+
+    border-top: 1px solid var(--border-color);
+
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    color: var(--muted-color);
+}
+
+/* =========================================
+   15. TABLET RESPONSIVE DESIGN
+   768px+
+========================================= */
+
+@media (min-width: 768px) {
+
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+
+        padding: var(--spacing-lg) 5%;
+    }
+
+    main {
+        width: min(90%, 1100px);
+
+        grid-template-columns: repeat(2, 1fr);
+
+        align-items: start;
+    }
+
+    main > section:first-child {
+        grid-column: 1 / -1;
+    }
+
+    form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    form > div:nth-child(4) {
+        grid-column: 1 / -1;
+    }
+
+    button {
+        width: auto;
+        justify-self: start;
+    }
+}
+
+/* =========================================
+   16. DESKTOP RESPONSIVE DESIGN
+   1024px+
+========================================= */
+
+@media (min-width: 1024px) {
+
+    header {
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    main {
+        width: min(86%, 1200px);
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: var(--spacing-xxl);
+    }
+
+    main > section:first-child {
+        grid-column: 1 / -1;
+    }
+
+    section {
+        padding: var(--spacing-xxl);
+    }
+
+    h1 {
+        font-size: 2.4rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    nav ul {
+        gap: var(--spacing-md);
+    }
+
+    nav a {
+        padding: 0.7rem 1.2rem;
+    }
+}
+
+/* =========================================
+   17. LARGE DESKTOP
+   1400px+
+========================================= */
+
+@media (min-width: 1400px) {
+
+    main {
+        width: min(82%, 1300px);
+    }
+
+    body {
+        font-size: 1.05rem;
+    }
+}
+
+/* =========================================
+   18. REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+```
